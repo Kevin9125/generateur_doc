@@ -1,5 +1,5 @@
 from tree_sitter import Parser, Language, Query, QueryCursor, TreeCursor, Node
-from abc import ABCMeta, ABC
+from abc import ABCMeta, ABC, abstractmethod
 
 import tree_sitter_python
 import tree_sitter_c
@@ -7,7 +7,12 @@ import tree_sitter_rust
 import json
 
 class ModeleParser(metaclass = ABCMeta):
+    
     def __init__(self):
+        pass
+
+    @abstractmethod
+    def ParseFile(self):
         pass
 
     @abstractmethod
@@ -152,9 +157,76 @@ class ParserPython(ModeleParser):
         dernière_occurence = string.rfind(CARACTERE)
         return string[premiere_occurence+1:dernière_occurence]
         
+class ParserC(ModeleParser):
+    def __init__(self):
+        self.parseur = Parser(Language(tree_sitter_c.language()))        
+
+    def ParseFile(self):
+
+        #Initialisation
+        tree = self.parseur.parse(bytes(contenu, "utf8"))
+        cursor = tree.walk()
+        dict_module = {}
+
+        #Creation du dictionnaire
+        for child in cursor.node.children:
+            dict_module = self.RegisterClass(child)
+
         
-    
-    
+        #transformation du dictionnaire en json
+        if type(dict_module) == dict:
+            json_module = json.dumps(dict_module, indent=4)
+        else:
+            raise TypeError("probleme de type lors de la transformation en json")
+
+        return json_module
+
+    def RegisterClass(self):
+        pass
+
+    def RegisterFunction(self):
+        pass
+
+    def RegisterAttributs(self):
+        pass
+
+    def RegisterReturn(self):
+        pass
+
+class ParserRust(ModeleParser):
+    def __init__(self):
+        self.parseur = Parser(Language(tree_sitter_rust.language()))
+
+    def ParseFile(self, contenu: str) -> None:
+
+        #Initialisation
+        tree = self.parseur.parse(bytes(contenu, "utf8"))
+        cursor = tree.walk()
+        dict_module = {}
+
+        #Creation du dictionnaire
+        for child in cursor.node.children:
+            dict_module = self.RegisterClass(child)
+
+        #transformation du dictionnaire en json
+        if type(dict_module) == dict:
+            json_module = json.dumps(dict_module, indent=4)
+        else:
+            raise TypeError("probleme de type lors de la transformation en json")
+
+        return json_module
+
+    def RegisterClass(self):
+        pass
+
+    def RegisterFunction(self):
+        pass
+
+    def RegisterAttributs(self):
+        pass
+
+    def RegisterReturn(self):
+        pass
 
 
 
