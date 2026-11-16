@@ -1,0 +1,6 @@
+class CreationDonneesEntrainementIA:
+    pass
+
+
+
+
