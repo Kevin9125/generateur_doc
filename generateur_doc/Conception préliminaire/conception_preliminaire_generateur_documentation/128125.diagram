@@ -1,0 +1,83 @@
+format 224
+
+subject 128125 "Generateur de documentation"
+  xyzwh 67.8 73.2 2000 629 394
+classcanvas 128253 class_ref 128125 // Utilisateur
+  simpleclassdiagramsettings end
+  xyz 9.8 149.6 2000
+end
+classcanvas 131325 class_ref 128253 // SystemeExploitation
+  simpleclassdiagramsettings end
+  xyz 722.2 226.6 2000
+end
+usecasecanvas 133885 usecase_ref 128637 // Creer la documentation
+  xyzwh 109 174 3005 64 32 label_xy 85 206
+end
+usecasecanvas 134013 usecase_ref 128253 // Analyser projet
+  xyzwh 361 101 3005 64 32 label_xy 358 133
+end
+usecasecanvas 135165 usecase_ref 128509 // Enregistrer la documentation
+  xyzwh 469 265 3005 64 32 label_xy 433 299
+end
+textcanvas 136317 "<<extend>>"
+  xyzwh 346 268 3011 65 13
+usecasecanvas 136829 usecase_ref 129533 // Afficher la documentation
+  xyzwh 224 277 3010 64 32 label_xy 195 309
+end
+usecasecanvas 137597 usecase_ref 129661 // Imprimer la documentation
+  xyzwh 465 341 3005 64 32 label_xy 434 374
+end
+usecasecanvas 137725 usecase_ref 129789 // Partager la documentation
+  xyzwh 421 411 3005 64 32 label_xy 390 443
+end
+textcanvas 138109 "<<extend>>"
+  xyzwh 366 309 3016 66 13
+textcanvas 138237 "<<extend>>"
+  xyzwh 328 375 3016 66 13
+classcanvas 140541 class_ref 128381 // ServeurMessagerie
+  simpleclassdiagramsettings end
+  xyz 732.8 392.8 2000
+end
+usecasecanvas 141053 usecase_ref 128125 // Importer projet
+  xyzwh 219 126 3005 64 32 label_xy 214 158
+end
+textcanvas 141565 "<<include>>"
+  xyzwh 151 135 3011 65 13
+textcanvas 141693 "<<include>>"
+  xyzwh 282 109 3011 65 13
+usecasecanvas 142077 usecase_ref 136573 // Supprimer la documentation
+  xyzwh 460 179 3005 64 32 label_xy 426 211
+end
+textcanvas 142333 "<<extend>>"
+  xyzwh 322 223 3016 66 13
+line 135293 ----
+  from ref 135165 z 3006 to ref 131325
+line 137341 ----
+  from ref 133885 z 3011 to ref 136829
+simplerelationcanvas 138621 simplerelation_ref 130045
+  from ref 137597 z 3011 to ref 136829
+end
+simplerelationcanvas 139261 simplerelation_ref 130173
+  from ref 137725 z 3011 to ref 136829
+end
+simplerelationcanvas 141181 simplerelation_ref 131069
+  from ref 134013 z 3006 to ref 141053
+end
+simplerelationcanvas 141309 simplerelation_ref 131197
+  from ref 141053 z 3006 to ref 133885
+end
+line 141437 ----
+  from ref 128253 z 3006 to ref 133885
+simplerelationcanvas 142205 simplerelation_ref 137853
+  from ref 142077 z 3011 to ref 136829
+end
+line 142461 ----
+  from ref 142077 z 3006 to ref 131325
+simplerelationcanvas 142589 simplerelation_ref 144381
+  from ref 135165 z 3011 to ref 136829
+end
+line 142717 ----
+  from ref 137597 z 3006 to ref 131325
+line 142845 ----
+  from ref 137725 z 3006 to ref 140541
+end

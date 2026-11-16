@@ -4,7 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>d458256b-b458-41c6-ba76-b3972c1cbbca</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>generateur_doc.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,7 +29,6 @@
     <Compile Include="core\Parsers.py" />
     <Compile Include="core\Result.py" />
     <Compile Include="core\__init__.py" />
-    <Compile Include="generateur_doc.py" />
     <Compile Include="src\main.py" />
     <Compile Include="src\__init__.py" />
     <Compile Include="tests\classes_tests\classe_test1.py" />
@@ -36,6 +36,11 @@
     <Compile Include="tests\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Conception préliminaire\" />
+    <Folder Include="Conception préliminaire\conception_preliminaire_generateur_documentation\" />
+    <Folder Include="Conception préliminaire\Design fenêtres application\" />
+    <Folder Include="Conception préliminaire\Diagrammes\" />
+    <Folder Include="Conception préliminaire\Diagrammes\Sequences\" />
     <Folder Include="core\" />
     <Folder Include="core\__pycache__\" />
     <Folder Include="json_entrainement_ia\" />
@@ -46,6 +51,34 @@
     <Folder Include="tests\__pycache__\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\125.session" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\127.session" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\128125.diagram" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\128127.diagram" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\134655.diagram" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\141183.diagram" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\141311.diagram" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\conception_preliminaire_generateur_documentation.prj" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\cpp_includes" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\generation_settings" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\idl_includes" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\java_imports" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\python_imports" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\stereotypes" />
+    <Content Include="Conception préliminaire\conception_preliminaire_generateur_documentation\tools" />
+    <Content Include="Conception préliminaire\Design fenêtres application\design_nouvelle_fenetre_après_ouverture_icone.png" />
+    <Content Include="Conception préliminaire\Design fenêtres application\fenetre principal apres importation.png" />
+    <Content Include="Conception préliminaire\Design fenêtres application\fenetre principal avant importation.png" />
+    <Content Include="Conception préliminaire\Diagrammes\classe_application.png" />
+    <Content Include="Conception préliminaire\Diagrammes\diagramme_cas_utilisation.png" />
+    <Content Include="Conception préliminaire\Diagrammes\Sequences\sequence_afficher_la_documentation.png" />
+    <Content Include="Conception préliminaire\Diagrammes\Sequences\sequence_analyser_un_projet.png" />
+    <Content Include="Conception préliminaire\Diagrammes\Sequences\sequence_enregistrer_la_documentation.png" />
+    <Content Include="Conception préliminaire\Diagrammes\Sequences\sequence_importer_un_projet.png" />
+    <Content Include="Conception préliminaire\Diagrammes\Sequences\sequence_imprimer_la_documentation.png" />
+    <Content Include="Conception préliminaire\Diagrammes\Sequences\sequence_partager_la_documentation.png" />
+    <Content Include="Conception préliminaire\Diagrammes\Sequences\sequence_supprimer_un_fichier.png" />
+    <Content Include="Conception préliminaire\Scénarie generateur documentation.pdf" />
     <Content Include="core\__pycache__\AnalyseurCode.cpython-311.pyc" />
     <Content Include="core\__pycache__\AnalyseurCode2.cpython-311.pyc" />
     <Content Include="core\__pycache__\ast_visiteur.cpython-311.pyc" />
