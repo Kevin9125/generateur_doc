@@ -1,16 +1,11 @@
 import json
-
+#from core.Parsers import Parsers
 from . import Result
-from core.Parsers import ParserPython
+from core.Parsers import ParserPython, ParserC, ParserRust
 
 class AnalyseurCode:
     def __init__(self):
-        
-        self.formats_accepter = {
-            "py" : "Python",
-            "c": "C",
-            "rs": "Rust"
-            }
+        self.parsers = [ParserPython(), ParserRust(), ParserC()]
 
     #Filtre les fichiers en fonction de si ils existent et si ils sont dans le bon format
     def VerificationFichiers(self, fichiers: list[str], result: Result.Result) -> Result.Result:  
@@ -43,8 +38,8 @@ class AnalyseurCode:
                     index = fichier.rfind('.')
                     is_accepted = False
 
-                    for key in self.formats_accepter:
-                        if key == fichier[index+1:]:
+                    for parser in self.parsers:
+                        if parser.extension == fichier[index+1:]:
                             is_accepted = True
                             break
 
@@ -89,7 +84,7 @@ class AnalyseurCode:
             print(json_module)
             #print(cursor.node.named_children[0].text)
             #print(tree.root_node)
-            pass
+    
         
 
 

@@ -1,41 +1,18 @@
 from tree_sitter import Parser, Language, Query, QueryCursor, TreeCursor, Node
-from abc import ABCMeta, ABC, abstractmethod
+from abc import ABC, abstractmethod
 
 import tree_sitter_python
 import tree_sitter_c
 import tree_sitter_rust
 import json
 
-class ModeleParser(metaclass = ABCMeta):
+class Parsers(ABC):
     
     def __init__(self):
-        pass
+        self.list_parsers = []
 
     @abstractmethod
-    def ParseFile(self):
-        pass
-
-    @abstractmethod
-    def RegisterClass(self):
-        pass
-
-    @abstractmethod
-    def RegisterFunction(self):
-        pass
-
-    @abstractmethod
-    def RegisterAttributs(self):
-        pass
-
-    @abstractmethod
-    def RegisterReturn(self):
-        pass
-
-class ParserPython(ModeleParser):
-    def __init__(self):
-        self.parseur = Parser(Language(tree_sitter_python.language()))
-
-    def ParseFiles(self, contenu : str) -> None:
+    def ParseFiles(self, contenu: str):
         
         #Initialisation
         tree = self.parseur.parse(bytes(contenu, "utf8"))
@@ -54,6 +31,32 @@ class ParserPython(ModeleParser):
             raise TypeError("probleme de type lors de la transformation en json")
 
         return json_module
+
+    @abstractmethod
+    def RegisterClass(self):
+        pass
+
+    @abstractmethod
+    def RegisterFunction(self):
+        pass
+
+    @abstractmethod
+    def RegisterAttributs(self):
+        pass
+
+    @abstractmethod
+    def RegisterReturn(self):
+        pass
+
+class ParserPython(Parsers):
+    def __init__(self):
+        self.parseur = Parser(Language(tree_sitter_python.language()))
+        self.langage = "Python"
+        self.extension = "py"
+
+    def ParseFiles(self, contenu : str) -> None:
+        
+        return super().ParseFiles(contenu)
        
 
     def RegisterClass(self, node: Node, dict_module: dict = {}) -> dict:
@@ -157,29 +160,15 @@ class ParserPython(ModeleParser):
         dernière_occurence = string.rfind(CARACTERE)
         return string[premiere_occurence+1:dernière_occurence]
         
-class ParserC(ModeleParser):
+class ParserC(Parsers):
     def __init__(self):
-        self.parseur = Parser(Language(tree_sitter_c.language()))        
+        self.parseur = Parser(Language(tree_sitter_c.language()))
+        self.langage = "C"
+        self.extension = "c"
 
-    def ParseFile(self):
+    def ParseFiles(self, contenu: str):
 
-        #Initialisation
-        tree = self.parseur.parse(bytes(contenu, "utf8"))
-        cursor = tree.walk()
-        dict_module = {}
-
-        #Creation du dictionnaire
-        for child in cursor.node.children:
-            dict_module = self.RegisterClass(child)
-
-        
-        #transformation du dictionnaire en json
-        if type(dict_module) == dict:
-            json_module = json.dumps(dict_module, indent=4)
-        else:
-            raise TypeError("probleme de type lors de la transformation en json")
-
-        return json_module
+        return super().ParseFiles(contenu)
 
     def RegisterClass(self):
         pass
@@ -193,28 +182,15 @@ class ParserC(ModeleParser):
     def RegisterReturn(self):
         pass
 
-class ParserRust(ModeleParser):
+class ParserRust(Parsers):
     def __init__(self):
         self.parseur = Parser(Language(tree_sitter_rust.language()))
+        self.langage = "Rust"
+        self.extension = "rs"
 
-    def ParseFile(self, contenu: str) -> None:
+    def ParseFiles(self, contenu: str) -> None:
 
-        #Initialisation
-        tree = self.parseur.parse(bytes(contenu, "utf8"))
-        cursor = tree.walk()
-        dict_module = {}
-
-        #Creation du dictionnaire
-        for child in cursor.node.children:
-            dict_module = self.RegisterClass(child)
-
-        #transformation du dictionnaire en json
-        if type(dict_module) == dict:
-            json_module = json.dumps(dict_module, indent=4)
-        else:
-            raise TypeError("probleme de type lors de la transformation en json")
-
-        return json_module
+        return super().ParseFiles(contenu)
 
     def RegisterClass(self):
         pass

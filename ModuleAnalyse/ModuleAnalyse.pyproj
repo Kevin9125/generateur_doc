@@ -94,7 +94,6 @@
     <Content Include="src\__pycache__\Result.cpython-311.pyc" />
     <Content Include="src\__pycache__\__init__.cpython-311.pyc" />
     <Content Include="tests\classes_tests\classe_test2.rs" />
-    <Content Include="tests\classes_tests\classe_test3.cpp" />
     <Content Include="tests\classes_tests\test3.txt" />
     <Content Include="tests\verif_json_plusieurs.json" />
     <Content Include="tests\verif_json_solo.json" />
