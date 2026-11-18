@@ -9,7 +9,7 @@ from jsondiff import diff
 def main() -> None:
 
     analyseur = AnalyseurCode()
-    test_fichier = ["tests/classes_tests/classe_test2.rs"]
+    test_fichier = ["src/main.py"]
     list_vide = []
     verif_data = ""
     analyseur.AnalyseFichiers(test_fichier)

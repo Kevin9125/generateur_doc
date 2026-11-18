@@ -24,7 +24,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="core\AnalyseurCode.py" />
-    <Compile Include="core\CreationDonneesEntrainementIA.py" />
     <Compile Include="core\ModuleAnalyse.py" />
     <Compile Include="core\ModuleIA.py" />
     <Compile Include="core\Parsers.py" />
