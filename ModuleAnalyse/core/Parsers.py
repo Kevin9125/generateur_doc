@@ -11,7 +11,7 @@ class Parsers(ABC):
     def __init__(self):
         self.list_parsers = []
 
-    @abstractmethod
+
     def ParseFiles(self, contenu: str):
         
         #Initialisation
@@ -23,7 +23,6 @@ class Parsers(ABC):
         for child in cursor.node.children:
             dict_module = self.RegisterClass(child)
 
-        
         #transformation du dictionnaire en json
         if type(dict_module) == dict:
             json_module = json.dumps(dict_module, indent=4)
